@@ -5,18 +5,15 @@ let add = (...arg) => {
     return arg.reduce((total, current) => total + current, 0);
 }
 
-
 // create a function for subtracting numbers
 let subtract = (a, b) => {
     return a - b;
 }
 
-
 //create a function for multiplying numbers
 let multiply = (...arg) => {
     return arg.reduce((total, current) => total * current, 1);
 }
-
 
 //create a function for division
 let divide = (a, b) => {
@@ -32,7 +29,6 @@ let multiplication = '*';
 
 let division = '/';
 
-
 // variable for firstNumber
 let firstNum;
 
@@ -43,8 +39,6 @@ let secondNum;
 // takes three parameters an operator and two numbers
 // use conditionals to call a function based on the operator chosen
 let operate = (num1, operator, num2) => {
-
-    console.log(`${num1} ${operator} ${num2}`);
 
     switch(operator){
         case addition:
