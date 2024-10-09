@@ -1,4 +1,52 @@
 * {
     box-sizing: border-box;
     background-color: aliceblue;
+    text-align:center;
+    font-weight:bold;
+}
+
+.main-container {
+    display:flex;
+    justify-content:center;
+    height:800px;
+    align-items:center;
+}
+
+.container {
+    border:2px solid blue;
+    height:600px;
+    width:400px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    gap:5px;
+}
+
+button {
+    height:60px;
+    width:80px;
+}
+
+#display {
+    border:2px solid blue;
+    background-color:white;
+    height:60px;
+    width:330px;
+    margin-bottom:20px;
+    display:flex;
+    justify-content: flex-end;
+    align-items:center;
+    padding:15px;
+}
+
+.name {
+    margin-bottom:60px;
+    font-size:20px;
+    font-weight:bold;
+    color:blue;
+}
+
+.blank {
+    color:aliceblue;
 }
