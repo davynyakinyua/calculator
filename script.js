@@ -67,6 +67,9 @@ let buttons = document.querySelectorAll('button');
 // An array to hold all the inputs from buttons clicked
 let input = [];
 
+// variable to hold the output string
+let outPut;
+
 // a function to populate the display for the calculator
 let display = (event) => {
     let selected = event.target.innerText;
@@ -77,7 +80,7 @@ let display = (event) => {
 
     input.push(...inputSelected);
 
-    let outPut = input.join('');
+    outPut = input.join('');
 
     screenDisplay.innerText = outPut;
 }
