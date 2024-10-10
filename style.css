@@ -38,6 +38,7 @@ button {
     justify-content: flex-end;
     align-items:center;
     padding:15px;
+    font-size:25px;
 }
 
 .name {
