@@ -57,3 +57,32 @@ let operate = (num1, operator, num2) => {
 }
 
 console.log(operate(2, '+', 2));
+
+// Assign a variable screen display to display div
+let screenDisplay = document.querySelector('#display')
+
+// Assign variable buttons to all the buttons
+let buttons = document.querySelectorAll('button');
+
+// An array to hold all the inputs from buttons clicked
+let input = [];
+
+// a function to populate the display for the calculator
+let display = (event) => {
+    let selected = event.target.innerText;
+
+    let inputSelected = [];
+
+    inputSelected.push(selected);
+
+    input.push(...inputSelected);
+
+    let outPut = input.join('');
+
+    screenDisplay.innerText = outPut;
+}
+
+// add an event listener for the buttons
+buttons.forEach((button) => {
+    button.addEventListener('click', display);
+});
