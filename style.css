@@ -26,11 +26,13 @@
 button {
     height:60px;
     width:80px;
+    background-color:black;
+    color:white;
 }
 
 #display {
     border:2px solid blue;
-    background-color:white;
+    background-color:black;
     height:60px;
     width:330px;
     margin-bottom:20px;
@@ -39,6 +41,7 @@ button {
     align-items:center;
     padding:15px;
     font-size:25px;
+    color:white;
 }
 
 .name {
@@ -49,5 +52,9 @@ button {
 }
 
 .blank {
-    color:aliceblue;
+    color:black;
+}
+
+.operator-keys {
+    color:brown;
 }
