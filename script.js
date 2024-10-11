@@ -31,9 +31,59 @@ let division = '/';
 
 // variable for firstNumber
 let firstNum;
+console.log(firstNum);
 
 //variable for second number
 let secondNum;
+console.log(secondNum);
+
+// variable for separator
+let separator;
+console.log(separator);
+
+
+// Assign a variable screen display to display div
+let screenDisplay = document.querySelector('#display')
+
+// Assign variable buttons to all the buttons
+let buttons = document.querySelectorAll('button');
+
+
+// An array to hold all the inputs from buttons clicked
+let input = [];
+
+// variable to hold the output string
+let outPut;
+
+// create a function input operate to separate first and second number and the separator
+let inputOperate = (string) => {
+
+    let separatorIndex;
+
+    //find the index of the separator
+    if(string.includes('x')){
+        separatorIndex = string.indexOf('x');
+    }else if(string.includes('+')){
+        separatorIndex = string.indexOf('+');
+    }else if(string.includes('-')){
+        separatorIndex = string.indexOf('-');
+    }else if(string.includes('/')){
+        separatorIndex = string.indexOf('/');
+    }else{
+        console.log(outPut)
+    }
+    
+    // extract the first number, the separator and last number
+    let num1 = input.slice(0, separatorIndex).join('');
+
+    separator = input[separatorIndex];
+
+    let num2 = input.slice(separatorIndex + 1).join('');
+
+    firstNum = Number(num1);
+
+    secondNum = Number(num2);
+}
 
 // create a function operate
 // takes three parameters an operator and two numbers
@@ -56,20 +106,6 @@ let operate = (num1, operator, num2) => {
     }
 }
 
-console.log(operate(2, '+', 2));
-
-// Assign a variable screen display to display div
-let screenDisplay = document.querySelector('#display')
-
-// Assign variable buttons to all the buttons
-let buttons = document.querySelectorAll('button');
-
-// An array to hold all the inputs from buttons clicked
-let input = [];
-
-// variable to hold the output string
-let outPut;
-
 // a function to populate the display for the calculator
 let display = (event) => {
     let selected = event.target.innerText;
@@ -82,10 +118,17 @@ let display = (event) => {
 
     outPut = input.join('');
 
+    inputOperate(outPut);
+
     screenDisplay.innerText = outPut;
 }
 
+
+
 // add an event listener for the buttons
 buttons.forEach((button) => {
-    button.addEventListener('click', display);
+
+        button.addEventListener('click', display);
+
+    
 });
