@@ -31,7 +31,7 @@ button {
 }
 
 #display {
-    border:2px solid blue;
+    border:2px solid black;
     background-color:black;
     height:60px;
     width:330px;
@@ -52,7 +52,9 @@ button {
 }
 
 .blank {
-    color:black;
+    color:aliceblue;
+    background-color:aliceblue;
+    border:aliceblue;
 }
 
 .operator-keys {
