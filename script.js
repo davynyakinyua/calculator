@@ -46,7 +46,7 @@ console.log(separator);
 let screenDisplay = document.querySelector('#display')
 
 // Assign variable buttons to all the buttons
-let buttons = document.querySelectorAll('button');
+let buttons = document.querySelectorAll('.numArithmetic');
 
 
 // An array to hold all the inputs from buttons clicked
