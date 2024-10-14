@@ -25,22 +25,18 @@ let addition = '+';
 
 let subtraction = '-';
 
-let multiplication = '*';
+let multiplication = 'x';
 
 let division = '/';
 
 // variable for firstNumber
 let firstNum;
-console.log(firstNum);
 
 //variable for second number
 let secondNum;
-console.log(secondNum);
 
 // variable for separator
 let separator;
-console.log(separator);
-
 
 // Assign a variable screen display to display div
 let screenDisplay = document.querySelector('#display')
@@ -132,3 +128,39 @@ buttons.forEach((button) => {
 
     
 });
+
+//Add reference to buttons AC C and = on the Dom.
+let clear = document.querySelector('#refresh-page');
+
+let del = document.querySelector('#del');
+
+let equals = document.querySelector('#equals');
+
+// function for clearing the screen
+let reload = () => {
+    location.reload();
+}
+
+// function for deleting items on the screen one by one
+let backSpace = () => {
+    input.pop();
+    console.log(input);
+    outPut = input.join('');
+    screenDisplay.innerText = outPut;
+
+    
+}
+
+// function for displaying results on the screen
+let results = () => {
+    return screenDisplay.innerText = operate(firstNum, separator, secondNum);
+}
+
+//Add three event listeners for AC, C and =.
+
+// Event listeners for AC button.
+clear.addEventListener('click', reload);
+
+del.addEventListener('click', backSpace);
+
+equals.addEventListener('click', results);
