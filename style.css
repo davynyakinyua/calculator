@@ -21,6 +21,7 @@
     justify-content:center;
     align-items:center;
     gap:5px;
+    background-color:darkgrey;
 }
 
 button {
@@ -49,14 +50,34 @@ button {
     font-size:20px;
     font-weight:bold;
     color:blue;
+    background-color:darkgrey;
 }
 
 .blank {
-    color:aliceblue;
-    background-color:aliceblue;
-    border:aliceblue;
+    color:darkgrey;
+    background-color:darkgrey;
+    border:darkgrey;
 }
 
 .operator-keys {
     color:brown;
+}
+
+.arith {
+    background-color:brown;
+    color:white;
+}
+
+.control{
+    background-color:blue;
+    color:white;
+}
+
+#equals {
+    background-color:brown;
+    color:white;
+}
+
+.background {
+    background-color:darkgrey;
 }
