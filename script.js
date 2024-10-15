@@ -17,7 +17,11 @@ let multiply = (...arg) => {
 
 //create a function for division
 let divide = (a, b) => {
-    return a / b;
+    if(b === 0){
+        return screenDisplay.innerText = 0;
+    }else{
+        return a/b;
+    }
 }
 
 //variables for addition, subtraction, multiplication and division operator
@@ -153,7 +157,11 @@ let backSpace = () => {
 
 // function for displaying results on the screen
 let results = () => {
-    return screenDisplay.innerText = operate(firstNum, separator, secondNum);
+    if(firstNum === undefined){
+        return screenDisplay.innerText = 'error';
+    }else{
+        return screenDisplay.innerText = operate(firstNum, separator, secondNum);
+    }
 }
 
 //Add three event listeners for AC, C and =.
@@ -161,6 +169,8 @@ let results = () => {
 // Event listeners for AC button.
 clear.addEventListener('click', reload);
 
+// event listener fo C button
 del.addEventListener('click', backSpace);
 
+// event listener for = .
 equals.addEventListener('click', results);
