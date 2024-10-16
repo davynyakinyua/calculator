@@ -96,7 +96,7 @@ let display = (event) => {
     screenDisplay.innerText = outPut;
 
     if(firstNum !== undefined){
-        
+
         secondNum = Number(outPut);
 
     }
