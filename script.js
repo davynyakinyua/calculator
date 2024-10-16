@@ -116,15 +116,18 @@ let newDisplay = (event) => {
         input = [];
 
     }else if(firstNum !== undefined && secondNum === undefined){
-        secondNum = Number(outPut);
 
-        input = [];
+        secondNum = Number(outPut);
 
     }else if(firstNum !== undefined && secondNum !== undefined){
 
-        answer = operate(firstNum, separator, secondNum);
+        firstNum = operate(firstNum, separator, secondNum);
 
-        firstNum = answer;
+        answer = firstNum;
+        
+        input = [];
+
+        secondNum = Number(input.join(''));
 
         return   screenDisplay.innerText = answer;
     }else{
