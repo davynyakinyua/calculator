@@ -42,48 +42,23 @@ let secondNum;
 // variable for separator
 let separator;
 
+// a variable for answer
+let answer;
+
 // Assign a variable screen display to display div
 let screenDisplay = document.querySelector('#display')
 
 // Assign variable buttons to all the buttons
 let buttons = document.querySelectorAll('.numArithmetic');
 
+// variable for referencing + - / and *
+let operator = document.querySelectorAll('.arith');
 
 // An array to hold all the inputs from buttons clicked
 let input = [];
 
 // variable to hold the output string
 let outPut;
-
-// create a function input operate to separate first and second number and the separator
-let inputOperate = (string) => {
-
-    let separatorIndex;
-
-    //find the index of the separator
-    if(string.includes('x')){
-        separatorIndex = string.indexOf('x');
-    }else if(string.includes('+')){
-        separatorIndex = string.indexOf('+');
-    }else if(string.includes('-')){
-        separatorIndex = string.indexOf('-');
-    }else if(string.includes('/')){
-        separatorIndex = string.indexOf('/');
-    }else{
-        console.log(outPut)
-    }
-    
-    // extract the first number, the separator and last number
-    let num1 = input.slice(0, separatorIndex).join('');
-
-    separator = input[separatorIndex];
-
-    let num2 = input.slice(separatorIndex + 1).join('');
-
-    firstNum = Number(num1);
-
-    secondNum = Number(num2);
-}
 
 // create a function operate
 // takes three parameters an operator and two numbers
@@ -118,9 +93,44 @@ let display = (event) => {
 
     outPut = input.join('');
 
-    inputOperate(outPut);
-
     screenDisplay.innerText = outPut;
+
+    if(firstNum !== undefined){
+        secondNum = Number(outPut);
+
+        input = [];
+
+    }
+}
+
+//function for doing calculations when operators are clicked
+let newDisplay = (event) => {
+    console.log(event.target.innerText);
+
+    separator = event.target.innerText;
+    console.log(separator);
+
+    if(firstNum === undefined){
+        firstNum = Number(outPut);
+
+        input = [];
+
+    }else if(firstNum !== undefined && secondNum === undefined){
+        secondNum = Number(outPut);
+
+        input = [];
+
+    }else if(firstNum !== undefined && secondNum !== undefined){
+
+        answer = operate(firstNum, separator, secondNum);
+
+        firstNum = answer;
+
+        return   screenDisplay.innerText = answer;
+    }else{
+
+        alert('error');
+    }
 }
 
 
@@ -158,9 +168,10 @@ let backSpace = () => {
 // function for displaying results on the screen
 let results = () => {
     if(firstNum === undefined){
-        return screenDisplay.innerText = 'error';
+        return screenDisplay.innerText = 0;
     }else{
-        return screenDisplay.innerText = operate(firstNum, separator, secondNum);
+        answer = operate(firstNum, separator, secondNum);
+        return screenDisplay.innerText = answer;
     }
 }
 
@@ -174,3 +185,10 @@ del.addEventListener('click', backSpace);
 
 // event listener for = .
 equals.addEventListener('click', results);
+
+// event listener for operators
+operator.forEach((button) => {
+
+    console.log(button.innerText);
+    button.addEventListener('click', newDisplay);
+});
