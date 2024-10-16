@@ -96,9 +96,8 @@ let display = (event) => {
     screenDisplay.innerText = outPut;
 
     if(firstNum !== undefined){
+        
         secondNum = Number(outPut);
-
-        input = [];
 
     }
 }
@@ -124,10 +123,10 @@ let newDisplay = (event) => {
         firstNum = operate(firstNum, separator, secondNum);
 
         answer = firstNum;
-        
+
         input = [];
 
-        secondNum = Number(input.join(''));
+        secondNum = Number(outPut);
 
         return   screenDisplay.innerText = answer;
     }else{
