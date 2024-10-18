@@ -102,12 +102,30 @@ let display = (event) => {
     }
 }
 
+// variable for separator input
+let separatorText;
+
+// array for separators 
+let separatorArray = [];
+
+let separatorFunc = (inputText) => {
+
+    let separatorInput = [];
+
+    separatorInput.push(inputText);
+    console.log(separatorInput);
+
+    return separatorArray.push(...separatorInput);
+}
+
 //function for doing calculations when operators are clicked
 let newDisplay = (event) => {
+
     console.log(event.target.innerText);
 
-    separator = event.target.innerText;
-    console.log(separator);
+    separatorText = event.target.innerText;
+
+    separatorFunc(separatorText);
 
     if(firstNum === undefined){
         firstNum = Number(outPut);
@@ -120,6 +138,8 @@ let newDisplay = (event) => {
 
     }else if(firstNum !== undefined && secondNum !== undefined){
 
+        separator = separatorArray.shift();
+
         firstNum = operate(firstNum, separator, secondNum);
 
         answer = firstNum;
@@ -129,20 +149,18 @@ let newDisplay = (event) => {
         secondNum = Number(outPut);
 
         return   screenDisplay.innerText = answer;
+
     }else{
 
         alert('error');
     }
 }
 
-
-
 // add an event listener for the buttons
 buttons.forEach((button) => {
 
         button.addEventListener('click', display);
-
-    
+        
 });
 
 //Add reference to buttons AC C and = on the Dom.
@@ -172,7 +190,11 @@ let results = () => {
     if(firstNum === undefined){
         return screenDisplay.innerText = 0;
     }else{
+
+        separator = separatorArray.shift();
+
         answer = operate(firstNum, separator, secondNum);
+
         return screenDisplay.innerText = answer;
     }
 }
